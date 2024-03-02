@@ -1,0 +1,41 @@
+import random
+
+responses = {
+    "hello": ["Hello!", "Hi there!", "Hey!"],
+    "how are you": ["I'm doing well, thank you!", "I'm great, thanks for asking!", "I'm fine, how about you?"],
+    "what's your name": ["My name is Siren.", "I'm Siren.", "You can call me Siren."],
+    "who created you": ["I was created by an AI engineer.", "My creator is a human developer.", "A programmer built me."],
+    "what can you do": ["I can answer your questions.", "I'm here to chat with you.", "Feel free to ask me anything!"],
+    "tell me a joke": ["Why don't scientists trust atoms? Because they make up everything!", "What do you get when you cross a snowman and a vampire? Frostbite!"],
+    "goodbye": ["Goodbye!", "Bye!", "See you later!"],
+    "thank you": ["You're welcome!", "No problem!", "Anytime!"],
+    "how old are you": ["I'm just a chatbot, I don't have an age.", "I don't age, I'm a digital entity.", "I exist outside the concept of time."],
+    "where are you from": ["I exist in the digital realm.", "I'm from the world of programming.", "I don't have a physical location."],
+    "do you have siblings": ["As a chatbot, I don't have siblings.", "I'm the only one of my kind.", "I don't have family in the traditional sense."],
+    "what's the weather like": ["I'm sorry, I can't provide real-time weather information.", "You can check the weather forecast online or on your phone."],
+    "tell me a fun fact": ["The Eiffel Tower can be 15 cm taller during the summer due to thermal expansion of the iron.", "Bananas are berries, but strawberries are not."],
+    "do you like music": ["As a chatbot, I don't have preferences like humans do.", "I can't listen to music, but I can help you find some recommendations!"],
+    "what is the meaning of life": ["The meaning of life is subjective and varies from person to person.", "That's a profound question! The answer may differ based on individual beliefs."],
+    "how can I learn programming": ["There are many online resources and courses available to learn programming.", "Start by choosing a programming language and finding beginner-friendly tutorials."],
+}
+
+def get_response(message):
+    # Convert message to lowercase for case-insensitive matching
+    message = message.lower()
+    for key in responses:
+        if key in message:
+            return random.choice(responses[key])
+    return "I'm sorry, I didn't understand that."
+
+def main():
+    print("Siren: Hello! I'm Siren, your friendly chatbot. How can I help you today?")
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == 'exit':
+            print("Siren: Goodbye!")
+            break
+        response = get_response(user_input)
+        print("Siren:", response)
+
+if __name__ == "__main__":
+    main()
